@@ -1,0 +1,20 @@
+@startuml
+
+start
+
+:Benutzer wählt eine Kategorie;
+:Benutzer gibt Betrag, Datum und optionale Notiz ein;
+:Benutzer klickt auf Speichern;
+
+if (Eingaben gültig?) then (Ja)
+  :Daten werden validiert;
+  :Transaktion wird in der Datenbank gespeichert;
+  :Benutzer wird zum Hauptbildschirm weitergeleitet;
+else (Nein)
+  :Fehlermeldung anzeigen;
+  stop
+endif
+
+stop
+
+@enduml
