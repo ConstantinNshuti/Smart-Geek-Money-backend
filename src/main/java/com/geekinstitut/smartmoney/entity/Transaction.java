@@ -1,5 +1,6 @@
 package com.geekinstitut.smartmoney.entity;
 
+import com.geekinstitut.smartmoney.dto.TransactionResponseDTO;
 import com.geekinstitut.smartmoney.enums.CategoryType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,4 +32,19 @@ public abstract class Transaction {
 
     @Column(nullable = false)
     private LocalDate date;
+
+    /**
+     * Wandelt eine Transaktion in ein Response DTO um.
+     */
+
+    public TransactionResponseDTO toResponse(){
+        return new TransactionResponseDTO(
+                this.category.getId(),
+                this.category.getName(),
+                this.amount,
+                this.note,
+                this.date
+        );
+    }
+
 }
