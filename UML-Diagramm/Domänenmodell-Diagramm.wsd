@@ -1,0 +1,54 @@
+@startuml
+
+package "Transactions" {
+    class Transaction {
+        +UUID id
+        +Double amount
+        +String note
+        +LocalDate date
+    }
+
+    class Income {
+        +UUID id
+        +Double amount
+        +String note
+        +LocalDate date
+    }
+
+    class Expense {
+        +UUID id
+        +Double amount
+        +String note
+        +LocalDate date
+    }
+
+    Income -|> Transaction
+    Expense -|> Transaction
+}
+
+package "Category" {
+    class Category {
+        +UUID id
+        +String name
+        +Double plannedInMonth
+        +CategoryType type
+    }
+
+    enum CategoryType {
+        INCOME
+        EXPENSE
+    }
+
+    Category "1" --> "*" Transaction : belongs to
+}
+
+package "AppSettings" {
+    class AppSetting {
+        +UUID id
+        +String name
+        +String key
+        +String value
+    }
+}
+
+@enduml

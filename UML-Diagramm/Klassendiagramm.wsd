@@ -1,0 +1,51 @@
+@startuml
+
+abstract class Transaction {
+    UUID id
+    Category category
+    Double amount
+    String note
+    LocalDate date
+}
+
+class Income {
+    UUID id
+    Category category
+    Double amount
+    String note
+    LocalDate date
+}
+
+class Expense {
+    UUID id
+    Category category
+    Double amount
+    String note
+    LocalDate date
+}
+
+class Category {
+    UUID id
+    String name
+    Double plannedInMonth
+    CategoryType type
+}
+
+enum CategoryType {
+    INCOME
+    EXPENSE
+}
+
+class AppSetting {
+    UUID id
+    String name
+    String key
+    String value
+}
+
+Transaction <|-- Income
+Transaction <|-- Expense
+Category "1" --> "*" Transaction : relates to
+Category "1" --> "*" AppSetting : contains
+
+@enduml
