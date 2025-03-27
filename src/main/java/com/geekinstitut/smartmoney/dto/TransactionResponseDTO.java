@@ -10,6 +10,9 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ * Was der Enduser von System bekommt
+ * */
 public class TransactionResponseDTO {
     private UUID categoryId;
     private String categoryName;

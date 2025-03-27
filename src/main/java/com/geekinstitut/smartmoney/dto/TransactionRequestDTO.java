@@ -10,6 +10,9 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ * Was der Enduser nachfordert
+ * */
 public class TransactionRequestDTO {
     private UUID categoryId;
     private Double amount;
